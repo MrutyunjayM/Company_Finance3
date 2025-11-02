@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏢 Company Finance + Attendance Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>🏢 Company Finance & Attendance Dashboard</h1>
+
+  <!-- Month Selection -->
+  <section>
+    <div class="month-selector">
+      <label><b>Select Month:</b></label>
+      <select id="monthSelect"></select>
+      <button onclick="createNewMonth()">➕ New Month</button>
+    </div>
+  </section>
+
+  <!-- Add Employee -->
+  <section>
+    <h2>👥 Add Employee</h2>
+    <input type="text" id="empName" placeholder="Employee Name" />
+    <input type="text" id="empDept" placeholder="Department" />
+    <input type="number" id="empSalary" placeholder="Salary (₹)" />
+    <button onclick="addEmployee()">Add</button>
+
+    <h3>📋 Employee List</h3>
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Salary (₹)</th>
+          <th>Attendance %</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Attendance Section -->
+  <section>
+    <h2>🕒 Daily Attendance</h2>
+    <label for="attDate"><b>Select Date:</b></label>
+    <input type="date" id="attDate" />
+    <button onclick="markAttendance()">Mark Attendance</button>
+    <table id="attendanceTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Employee</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- Finance Section -->
+  <section>
+    <h2>💰 Monthly Finance</h2>
+    <input type="number" id="income" placeholder="Total Income (₹)" />
+    <input type="number" id="expenses" placeholder="Other Expenses (₹)" />
+    <button onclick="calculateProfit()">Calculate Profit</button>
+
+    <div class="summary-box">
+      <div class="summary-item">
+        <h3>Total Employees</h3>
+        <p id="totalEmp">0</p>
+      </div>
+      <div class="summary-item">
+        <h3>Total Salary</h3>
+        <p>₹<span id="totalSalary">0</span></p>
+      </div>
+      <div class="summary-item">
+        <h3>Net Profit</h3>
+        <p id="netProfit">₹0</p>
+      </div>
+    </div>
+
+    <div id="chartContainer">
+      <canvas id="financeChart"></canvas>
+    </div>
+  </section>
+
+  <footer>© 2025 Company Finance Dashboard with Attendance</footer>
+  <script src="script.js"></script>
+</body>
+</html>
